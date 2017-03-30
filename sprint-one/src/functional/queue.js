@@ -16,12 +16,12 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     if (length > 0) {
-    length--;
-    var remove = someInstance[placeHolder]
-    placeHolder++;
-    return remove;
+      length--;
+      var remove = someInstance[placeHolder];
+      placeHolder++;
+      return remove;
     }
-  }
+  };
 
   someInstance.size = function() {
     return length;

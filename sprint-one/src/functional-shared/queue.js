@@ -20,20 +20,20 @@ var queueMethods = {};
 
 
 queueMethods.enqueue = function(value) {
-	this[this.count] = value;
-	this.count++;
-	this.length++;
-}
+  this[this.count] = value;
+  this.count++;
+  this.length++;
+};
 
 queueMethods.dequeue = function() {
-	this.placeholder++;
-	if (this.length > 0) {
-		var out = this[this.placeholder - 1]
-		this.length--;
-		return out;
-	}
-}
+  this.placeholder++;
+  if (this.length > 0) {
+    var out = this[this.placeholder - 1];
+    this.length--;
+    return out;
+  }
+};
 
 queueMethods.size = function() {
-	return this.length;
-}
+  return this.length;
+};
