@@ -13,9 +13,6 @@ var extend = function(to, from) {
   }
 };
 
-var count = 0;
-
-
 stackMethods = {};
 
 stackMethods.size = function () {
