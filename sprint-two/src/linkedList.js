@@ -10,18 +10,16 @@ var LinkedList = function() {
     var tailNode = Node(value);
     list.tail = tailNode;
     if (list.head === null) {
-      var headNode = Node(value)
+      var headNode = Node(value);
       list.head = headNode;
       list.head.next = headNode;
-      var lastNode = {}
     } else {
       var nodes = tailNode;
       list.tail = nodes;
-      lastNode = nodes
       list.tail.next = tailNode;
       list.head.next = tailNode;
     }
-    
+
     // list.tail = Node(value);
     // list[addedPlaceHolder] = Node(value);
     // list[addedPlaceHolder].next = addedPlaceHolder + 1;
