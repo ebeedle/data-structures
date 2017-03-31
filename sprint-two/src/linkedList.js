@@ -1,33 +1,41 @@
 var LinkedList = function() {
   var list = {};
-  list.head = {};
-  list.tail = {};
+  list.head = null;
+  list.tail = null;
   var length = 0;
   var addedPlaceHolder = 0;
   var removedPlaceHolder = 0;
 
   list.addToTail = function(value) {
-    list.tail.value = value;
-    list[addedPlaceHolder] = value;
-      if (length === 0) {
-        list.head.value = value;
-      }
+    list.tail = Node(value);
+    list[addedPlaceHolder] = Node(value);
+    list[addedPlaceHolder].next = addedPlaceHolder + 1;
+    if (length === 0) {
+      list.head = Node(value);
+      list.head.next = addedPlaceHolder + 1;
+    }
     addedPlaceHolder++;
     length++;
-    };
+  };
 
   list.removeHead = function() {
     removedPlaceHolder++;
     length--;
-    delete list[removedPlaceHolder - 1]
+    delete list[removedPlaceHolder - 1];
     var head = list.head.value;
-    list.head.value = list[removedPlaceHolder];
+    if (length > 0) {
+      list.head.value = list[removedPlaceHolder].value;
+    }
     return head;
   };
 
   list.contains = function(target) {
+    var hashTable = {};
     for (var key in list) {
-      if (list[key] === target) {
+      hashTable[key] = list[key].value;
+    }
+    for (var key2 in hashTable) {
+      if (hashTable[key2] === target) {
         return true;
       }
     }
