@@ -2,31 +2,55 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
-  var length = 0;
-  var addedPlaceHolder = 0;
-  var removedPlaceHolder = 0;
+  // var length = 0;
+  // var addedPlaceHolder = 0;
+  // var removedPlaceHolder = 0;
 
   list.addToTail = function(value) {
-    list.tail = Node(value);
-    list[addedPlaceHolder] = Node(value);
-    list[addedPlaceHolder].next = addedPlaceHolder + 1;
-    if (length === 0) {
-      list.head = Node(value);
-      list.head.next = addedPlaceHolder + 1;
+    var tailNode = Node(value);
+    list.tail = tailNode;
+    if (list.head === null) {
+      var headNode = Node(value)
+      list.head = headNode;
+      list.head.next = headNode;
+      var lastNode = {}
+    } else {
+      var nodes = tailNode;
+      list.tail = nodes;
+      lastNode = nodes
+      list.tail.next = tailNode;
+      list.head.next = tailNode;
     }
-    addedPlaceHolder++;
-    length++;
+    
+    
+    // list.tail = Node(value);
+    // list[addedPlaceHolder] = Node(value);
+    // list[addedPlaceHolder].next = addedPlaceHolder + 1;
+    // if (length === 0) {
+    //   list.head = Node(value);
+    //   list.head.next = addedPlaceHolder + 1;
+    // }
+    // addedPlaceHolder++;
+    // length++;
   };
 
   list.removeHead = function() {
-    removedPlaceHolder++;
-    length--;
-    delete list[removedPlaceHolder - 1];
-    var head = list.head.value;
-    if (length > 0) {
-      list.head.value = list[removedPlaceHolder].value;
-    }
-    return head;
+    var headNode = list.head;
+    list.head = headNode.next;
+    headNode = list.head;
+    return list.head.value;
+
+
+
+
+    // removedPlaceHolder++;
+    // length--;
+    // delete list[removedPlaceHolder - 1];
+    // var head = list.head.value;
+    // if (length > 0) {
+    //   list.head.value = list[removedPlaceHolder].value;
+    // }
+    // return head;
   };
 
   list.contains = function(target) {
