@@ -22,7 +22,6 @@ var LinkedList = function() {
       list.head.next = tailNode;
     }
     
-    
     // list.tail = Node(value);
     // list[addedPlaceHolder] = Node(value);
     // list[addedPlaceHolder].next = addedPlaceHolder + 1;
@@ -39,9 +38,6 @@ var LinkedList = function() {
     list.head = headNode.next;
     headNode = list.head;
     return list.head.value;
-
-
-
 
     // removedPlaceHolder++;
     // length--;
